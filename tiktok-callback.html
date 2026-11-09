@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kcalouro Postador · autorização</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #123a30; color: #f6f2e6;
+         font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding: 24px; text-align: center; }
+  b { color: #f2c14e; }
+</style>
+</head>
+<body>
+<main>
+  <h2><b>Kcal</b>ouro Postador</h2>
+  <p id="msg">Concluindo a autorização…</p>
+</main>
+<script>
+  // Página de retorno do login do TikTok. Repassa o código para o programa que está esperando
+  // no próprio computador do dono do canal (127.0.0.1). Nada é guardado aqui.
+  const q = location.search;
+  const p = new URLSearchParams(q);
+  if (p.get('code') || p.get('error')) location.replace('http://127.0.0.1:53682/tiktok' + q);
+  else document.getElementById('msg').textContent = 'Nenhuma autorização pendente.';
+</script>
+</body>
+</html>
